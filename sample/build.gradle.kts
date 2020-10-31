@@ -6,14 +6,14 @@ plugins {
 android {
     commonConfig()
 
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+    kotlinOptions.jvmTarget = "1.8"
 
     buildFeatures.viewBinding = true
 }
 
 dependencies {
+    implementation(project(":lib"))
+
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
