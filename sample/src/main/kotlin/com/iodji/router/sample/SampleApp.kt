@@ -10,5 +10,9 @@ class SampleApp : Application() {
         Routes.Second.register {
             Intent(this, SecondActivity::class.java)
         }
+
+        Routes.Third.register {
+            Intent(this, ThirdActivity::class.java)
+        }
     }
 }

@@ -4,16 +4,16 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.iodji.router.Router
-import com.iodji.router.sample.databinding.ActivityMainBinding
+import com.iodji.router.sample.databinding.ActivityButtonBinding
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var ui: ActivityMainBinding
+    lateinit var ui: ActivityButtonBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        ui = ActivityMainBinding.inflate(layoutInflater)
+        ui = ActivityButtonBinding.inflate(layoutInflater)
 
         processView()
 
