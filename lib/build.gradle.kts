@@ -13,6 +13,7 @@ android {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")
-    
+    implementation("androidx.fragment:fragment-ktx:1.2.5")
+
     testImplementation("junit:junit:4.13.1")
 }

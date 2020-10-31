@@ -1,11 +1,11 @@
-package com.iodji.lib.sample
+package com.iodji.router.sample
 
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.iodji.template.databinding.ActivityBinding
+import com.iodji.router.sample.databinding.ActivityBinding
 
-class MainActivity : AppCompatActivity() {
+class SecondActivity : AppCompatActivity() {
 
     lateinit var ui: ActivityBinding
 
@@ -20,6 +20,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun processView() {
-        ui.root.setBackgroundColor(Color.RED)
+        ui.root.setBackgroundColor(Color.BLUE)
     }
 }
