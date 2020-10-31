@@ -1,4 +1,4 @@
-package com.iodji.template
+package com.iodji.lib.sample
 
 import android.graphics.Color
 import android.os.Bundle
