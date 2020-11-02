@@ -19,7 +19,7 @@ In your **module** *build.gralde* :
 
 ```bash
 dependencies {
-	implementation "com.github.iodji:router:latestVersion"
+	implementation "com.iodji:router:latestVersion"
 }
 ```
 
