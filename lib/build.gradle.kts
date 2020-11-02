@@ -33,7 +33,7 @@ val sourcesJar by tasks.registering(Jar::class) {
 publishing {
     publications {
         create<MavenPublication>(libProperties.getProperty("lib.name")) {
-            groupId = libProperties.getProperty("lib.group")
+            groupId = "${libProperties.getProperty("lib.extension")}.${libProperties.getProperty("lib.group")}"
             artifactId = libProperties.getProperty("lib.name")
             version = libProperties.getProperty("version.name")
 
