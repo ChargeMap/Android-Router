@@ -16,6 +16,8 @@ fun <P : RouteParam, R : RouteWithParam<P>> Fragment.lazyRouteParamNotNull(desti
 fun <P : RouteParam, R : RouteWithParam<P>> Activity.lazyRouteParam(destination: R): Lazy<P?> = lazy { intent.extras?.param() }
 fun <P : RouteParam, R : RouteWithParam<P>> Activity.lazyRouteParamNotNull(destination: R): Lazy<P> = lazy { intent.extras!!.paramNotNull() }
 
+fun <P : RouteParam, R : RouteWithParamAndInit<P, *>> Fragment.lazyRouteParam(destination: R): Lazy<P?> = lazy { arguments?.param() }
+fun <P : RouteParam, R : RouteWithParamAndInit<P, *>> Fragment.lazyRouteParamNotNull(destination: R): Lazy<P> = lazy { arguments!!.paramNotNull() }
 fun <P : RouteParam, R : RouteWithParamAndInit<P, *>> Activity.lazyRouteParam(destination: R): Lazy<P?> = lazy { intent.extras?.param() }
 fun <P : RouteParam, R : RouteWithParamAndInit<P, *>> Activity.lazyRouteParamNotNull(destination: R): Lazy<P> = lazy { intent.extras!!.paramNotNull() }
 

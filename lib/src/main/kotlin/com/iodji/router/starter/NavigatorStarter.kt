@@ -62,22 +62,6 @@ class NavigatorStarter(
             init = init
         )
 
-    fun <T : AbstractRoute> intent(
-        destination: T,
-        intentConfig: IntentConfig? = null,
-    ): Intent {
-        val containRoute = routeCreator.containsKey(destination)
-        if (containRoute) {
-            val intentCreator = routeCreator[destination]
-            intentCreator?.let {
-                val intent: Intent = it.creator(context)
-                intentConfig?.invoke(intent)
-                return it.creator(context)
-            }
-        }
-        throw Exception("route not registered ${destination.path}")
-    }
-
     private fun <T : AbstractRoute> startInternal(
         destination: T,
         requestCode: Int? = null,
@@ -172,5 +156,21 @@ class NavigatorStarter(
         }
 
         return true
+    }
+
+    fun <T : AbstractRoute> getIntent(
+        destination: T,
+        intentConfig: IntentConfig? = null,
+    ): Intent {
+        val containRoute = routeCreator.containsKey(destination)
+        if (containRoute) {
+            val intentCreator = routeCreator[destination]
+            intentCreator?.let {
+                val intent: Intent = it.creator(context)
+                intentConfig?.invoke(intent)
+                return it.creator(context)
+            }
+        }
+        throw Exception("route not registered ${destination.path}")
     }
 }
