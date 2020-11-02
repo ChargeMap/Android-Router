@@ -52,7 +52,7 @@ publishing {
                         appendNode("distribution", "repo")
                     }
                     appendNode("developers").appendNode("developer").apply {
-                        appendNode("id", "${libProperties.getProperty("lib.extension")}.${libProperties.getProperty("lib.group")}")
+                        appendNode("id", libProperties.getProperty("lib.group"))
                         appendNode("name", libProperties.getProperty("lib.group"))
                     }
                     appendNode("scm").apply {
