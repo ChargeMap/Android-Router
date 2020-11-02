@@ -85,8 +85,8 @@ bintray {
     pkg.apply {
         repo = libProperties.getProperty("lib.name")
         name = libProperties.getProperty("lib.name")
-        userOrg = "maven"
-        githubRepo = githubRepo
+        userOrg = libProperties.getProperty("lib.group")
+        githubRepo = "maven"
         vcsUrl = "https://github.com/${libProperties.getProperty("lib.group")}/${libProperties.getProperty("lib.name")}"
         description = libProperties.getProperty("lib.desc")
         setLabels("kotlin", libProperties.getProperty("lib.name"))
