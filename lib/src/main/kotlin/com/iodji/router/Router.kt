@@ -30,7 +30,8 @@ object Router {
     private val routes = mutableMapOf<Destination, RouteCreator>()
     private val init = mutableMapOf<Destination, RouteInit>()
 
-    fun of(fragment: Activity) = NavigatorStarter(StarterHandler.ActivityStarter(fragment), routes.toMap(), init)
+    fun of(context: Context) = NavigatorStarter(StarterHandler.ContextStarter(context), routes.toMap(), init)
+    fun of(activity: Activity) = NavigatorStarter(StarterHandler.ActivityStarter(activity), routes.toMap(), init)
     fun of(fragment: Fragment) = NavigatorStarter(StarterHandler.FragmentStarter(fragment), routes.toMap(), init)
 
     fun has(route: Destination) = routes.toMap().containsKey(route) || fragments.toMap().containsKey(route)
