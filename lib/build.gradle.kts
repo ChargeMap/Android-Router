@@ -52,7 +52,7 @@ publishing {
                         appendNode("distribution", "repo")
                     }
                     appendNode("developers").appendNode("developer").apply {
-                        appendNode("id", libProperties.getProperty("lib.group"))
+                        appendNode("id", "${libProperties.getProperty("lib.extension")}.${libProperties.getProperty("lib.group")}")
                         appendNode("name", libProperties.getProperty("lib.group"))
                     }
                     appendNode("scm").apply {
@@ -85,7 +85,7 @@ bintray {
     pkg.apply {
         repo = libProperties.getProperty("lib.name")
         name = libProperties.getProperty("lib.name")
-        userOrg = libProperties.getProperty("lib.group")
+        userOrg = "${libProperties.getProperty("lib.extension")}.${libProperties.getProperty("lib.group")}"
         githubRepo = githubRepo
         vcsUrl = "https://github.com/${libProperties.getProperty("lib.group")}/${libProperties.getProperty("lib.name")}"
         description = libProperties.getProperty("lib.desc")
