@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.*
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -5,7 +8,7 @@ plugins {
 }
 
 android {
-    commonConfig()
+    commonConfig(Properties().apply { load(FileInputStream("lib.properties")) })
 
     kotlinOptions.jvmTarget = "1.8"
 
