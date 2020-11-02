@@ -8,11 +8,11 @@ class SampleApp : Application() {
         super.onCreate()
 
         Routes.Second.register {
-            Intent(this, SecondActivity::class.java)
+            Intent(it, SecondActivity::class.java)
         }
 
         Routes.Third.register {
-            Intent(this, ThirdActivity::class.java)
+            Intent(it, ThirdActivity::class.java)
         }
     }
 }

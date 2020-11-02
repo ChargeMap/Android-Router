@@ -43,7 +43,7 @@ object Routes {
 
 ```
 Routes.Second.register {
-    Intent(this, SecondActivity::class.java)
+    Intent(it, SecondActivity::class.java)
 }
 ```
 
