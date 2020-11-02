@@ -1,2 +1,2 @@
 include ":sample", ":lib"
-rootProject.name = "Template"
+rootProject.name = "Router"
