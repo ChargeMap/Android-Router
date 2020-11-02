@@ -2,6 +2,7 @@ package com.iodji.router.destinations
 
 import android.content.Context
 import android.content.Intent
+import androidx.fragment.app.Fragment
 import com.iodji.router.PathMatcher
 import com.iodji.router.RouteInit
 import com.iodji.router.RouteParam
@@ -23,6 +24,10 @@ abstract class Route(
     open fun register(creator: Context.() -> Intent) {
         Router.register(this, creator, null)
     }
+
+    open fun register(creator: () -> Fragment) {
+        Router.register(this, creator)
+    }
 }
 
 abstract class RouteWithParam<P : RouteParam>(
@@ -32,6 +37,10 @@ abstract class RouteWithParam<P : RouteParam>(
 
     open fun register(creator: Context.() -> Intent) {
         Router.register(this, creator, null)
+    }
+
+    open fun register(creator: () -> Fragment) {
+        Router.register(this, creator)
     }
 }
 
