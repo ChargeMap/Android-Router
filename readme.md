@@ -1,5 +1,5 @@
 # Router
-[![](https://jitpack.io/v/iodji/router.svg)](https://jitpack.io/#iodji/router)
+[ ![Download](https://api.bintray.com/packages/iodji/maven/router/images/download.svg) ](https://bintray.com/iodji/maven/router/)
 
 Router is a Android library which provides routing features to your applications.
 
@@ -11,14 +11,14 @@ In your **root** *build.gralde* :
 allprojects {
 	repositories {
 		...
-		maven { url 'https://jitpack.io' }
+		maven { url "https://dl.bintray.com/iodji/maven" }
 	}
 }
 ```
 In your **module** *build.gralde* :
 
 ```bash
-dependencies{
+dependencies {
 	implementation "com.github.iodji:router:latestVersion"
 }
 ```
