@@ -30,7 +30,7 @@ abstract class RouteWithParam<P : RouteParam>(
     requestCode: Int? = null,
 ) : AbstractRoute(path, requestCode) {
 
-    open fun register(creator: (Context) -> Intent) {
+    open fun register(creator: Context.() -> Intent) {
         Router.register(this, creator, null)
     }
 }
@@ -40,7 +40,7 @@ abstract class RouteWithParamAndInit<P : RouteParam, I : RouteInit>(
     requestCode: Int? = null,
 ) : AbstractRoute(path, requestCode) {
 
-    open fun register(creator: (Context) -> Intent) {
+    open fun register(creator: Context.() -> Intent) {
         Router.register(this, creator, null)
     }
 }
@@ -50,7 +50,7 @@ abstract class RouteWithInit<I : RouteInit>(
     requestCode: Int? = null,
 ) : AbstractRoute(path, requestCode) {
 
-    open fun register(creator: (Context) -> Intent) {
+    open fun register(creator: Context.() -> Intent) {
         Router.register(this, creator, null)
     }
 }
@@ -62,7 +62,7 @@ abstract class RouteWithDeepLink<P : RouteParam>(
     private val deepLinkMapper: ((Map<String, String>) -> P)? = null,
 ) : RouteWithParam<P>(path, requestCode) {
 
-    override fun register(creator: (Context) -> Intent) {
+    override fun register(creator: Context.() -> Intent) {
         super.register(creator)
 
         if (deepLink != null && deepLinkMapper != null) {
