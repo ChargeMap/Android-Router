@@ -12,6 +12,7 @@ import com.iodji.router.destinations.Destination
 import com.iodji.router.destinations.Route
 import com.iodji.router.destinations.RouteWithParam
 import com.iodji.router.starter.DestinationWithParams
+import com.iodji.router.starter.IntentConfig
 import com.iodji.router.starter.NavigatorStarter
 import com.iodji.router.starter.StarterHandler
 
@@ -30,7 +31,6 @@ object Router {
     private val routes = mutableMapOf<Destination, RouteCreator>()
     private val init = mutableMapOf<Destination, RouteInit>()
 
-    fun of(context: Context) = NavigatorStarter(StarterHandler.ContextStarter(context), routes.toMap(), init)
     fun of(activity: Activity) = NavigatorStarter(StarterHandler.ActivityStarter(activity), routes.toMap(), init)
     fun of(fragment: Fragment) = NavigatorStarter(StarterHandler.FragmentStarter(fragment), routes.toMap(), init)
 
@@ -73,6 +73,23 @@ object Router {
     fun register(route: AbstractRoute, creator: () -> Fragment) {
         if (fragments.containsKey(route)) throw Exception("fragment already registered ${route.path}")
         fragments[route] = FragmentCreator(creator)
+    }
+
+    fun <T : AbstractRoute> getIntent(
+        context: Context,
+        destination: T,
+        intentConfig: IntentConfig? = null,
+    ): Intent {
+        val containRoute = routes.containsKey(destination)
+        if (containRoute) {
+            val intentCreator = routes[destination]
+            intentCreator?.let {
+                val intent: Intent = it.creator(context)
+                intentConfig?.invoke(intent)
+                return it.creator(context)
+            }
+        }
+        throw Exception("route not registered ${destination.path}")
     }
 
     fun <T : Route> getFragment(route: T) = fragments.toMap()[route]?.creator?.invoke() ?: throw Exception("fragment not registered ${route.path}")

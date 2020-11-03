@@ -12,18 +12,6 @@ sealed class StarterHandler {
     abstract fun start(intent: Intent)
     abstract fun startForResult(intent: Intent, code: Int)
 
-    class ContextStarter(override val context: Context) : StarterHandler() {
-        override val activity: Activity? = null
-
-        override fun start(intent: Intent) {
-            throw IllegalStateException("Cannot start activity with this Router context")
-        }
-
-        override fun startForResult(intent: Intent, code: Int) {
-            throw IllegalStateException("Cannot start activity with this Router context")
-        }
-    }
-
     class ActivityStarter(override val activity: Activity) : StarterHandler() {
         override val context = activity
 
