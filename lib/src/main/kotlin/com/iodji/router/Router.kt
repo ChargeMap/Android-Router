@@ -47,12 +47,14 @@ object Router {
         return routes[destination]?.creator?.invoke(context) ?: throw Exception("route not registered ${destination.path}")
     }
 
-    fun <I : RouteInit, T : RouteWithInit<I>> getIntent(context: Context, destination: T, routeInit: I): Intent {
-        init[destination] = routeInit
+    fun <I : RouteInit, T : RouteWithInit<I>> getIntent(context: Context, destination: T, routeInit: I?): Intent {
+        routeInit?.let {
+            init[destination] = it
+        }
         return routes[destination]?.creator?.invoke(context) ?: throw Exception("route not registered ${destination.path}")
     }
 
-    fun <P : RouteParam, T : RouteWithParam<P>> getIntent(context: Context, destination: T, param: P): Intent {
+    fun <P : RouteParam, T : RouteWithParam<P>> getIntent(context: Context, destination: T, param: P?): Intent {
         return routes[destination]?.let {
             it.creator(context)
                 .putExtra("bundle", Bundle().apply {
@@ -61,8 +63,10 @@ object Router {
         } ?: throw Exception("route not registered ${destination.path}")
     }
 
-    fun <P : RouteParam, I : RouteInit, T : RouteWithParamAndInit<P, I>> getIntent(context: Context, destination: T, param: P, routeInit: I): Intent {
-        init[destination] = routeInit
+    fun <P : RouteParam, I : RouteInit, T : RouteWithParamAndInit<P, I>> getIntent(context: Context, destination: T, param: P?, routeInit: I?): Intent {
+        routeInit?.let {
+            init[destination] = it
+        }
         return routes[destination]?.let {
             it.creator(context)
                 .putExtra("bundle", Bundle().apply {
