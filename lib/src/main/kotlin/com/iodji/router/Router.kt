@@ -24,12 +24,23 @@ object Router {
     internal val routes = mutableMapOf<Destination, RouteCreator>()
     private val init = mutableMapOf<Destination, RouteInit>()
 
+    fun reset() {
+        fragments.clear()
+        routes.clear()
+        init.clear()
+    }
+
     fun of(activity: Activity) = ActivityEngine(activity)
     fun of(fragment: Fragment) = FragmentEngine(fragment)
 
-    fun has(route: Destination) = routes.toMap().containsKey(route) || fragments.toMap().containsKey(route)
+    fun has(route: Destination) =
+        routes.toMap().containsKey(route) || fragments.toMap().containsKey(route)
 
-    fun register(route: AbstractRoute, creator: (Context) -> Intent, bundleCreator: ((Map<String, String>) -> RouteParam)?) {
+    fun register(
+        route: AbstractRoute,
+        creator: (Context) -> Intent,
+        bundleCreator: ((Map<String, String>) -> RouteParam)?
+    ) {
         if (routes.containsKey(route)) throw Exception("route already registered ${route.path}")
         routes[route] = RouteCreator(creator, bundleCreator)
     }
@@ -44,17 +55,27 @@ object Router {
     }
 
     fun <T : Route> getIntent(context: Context, destination: T): Intent {
-        return routes[destination]?.creator?.invoke(context) ?: throw Exception("route not registered ${destination.path}")
+        return routes[destination]?.creator?.invoke(context)
+            ?: throw Exception("route not registered ${destination.path}")
     }
 
-    fun <I : RouteInit, T : RouteWithInit<I>> getIntent(context: Context, destination: T, routeInit: I?): Intent {
+    fun <I : RouteInit, T : RouteWithInit<I>> getIntent(
+        context: Context,
+        destination: T,
+        routeInit: I?
+    ): Intent {
         routeInit?.let {
             init[destination] = it
         }
-        return routes[destination]?.creator?.invoke(context) ?: throw Exception("route not registered ${destination.path}")
+        return routes[destination]?.creator?.invoke(context)
+            ?: throw Exception("route not registered ${destination.path}")
     }
 
-    fun <P : RouteParam, T : RouteWithParam<P>> getIntent(context: Context, destination: T, param: P?): Intent {
+    fun <P : RouteParam, T : RouteWithParam<P>> getIntent(
+        context: Context,
+        destination: T,
+        param: P?
+    ): Intent {
         return routes[destination]?.let {
             it.creator(context)
                 .putExtra("bundle", Bundle().apply {
@@ -63,7 +84,12 @@ object Router {
         } ?: throw Exception("route not registered ${destination.path}")
     }
 
-    fun <P : RouteParam, I : RouteInit, T : RouteWithParamAndInit<P, I>> getIntent(context: Context, destination: T, param: P?, routeInit: I?): Intent {
+    fun <P : RouteParam, I : RouteInit, T : RouteWithParamAndInit<P, I>> getIntent(
+        context: Context,
+        destination: T,
+        param: P?,
+        routeInit: I?
+    ): Intent {
         routeInit?.let {
             init[destination] = it
         }
@@ -75,7 +101,8 @@ object Router {
         } ?: throw Exception("route not registered ${destination.path}")
     }
 
-    private fun findFragment(route: Destination) = fragments.toMap()[route]?.creator?.invoke() ?: throw Exception("fragment not registered ${route.path}")
+    private fun findFragment(route: Destination) = fragments.toMap()[route]?.creator?.invoke()
+        ?: throw Exception("fragment not registered ${route.path}")
 
     fun <T : Route> getFragment(route: T) = findFragment(route)
 
