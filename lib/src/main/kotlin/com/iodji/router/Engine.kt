@@ -4,7 +4,9 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.iodji.router.destinations.Route
 import com.iodji.router.destinations.RouteWithInit
 import com.iodji.router.destinations.RouteWithParam
@@ -107,6 +109,23 @@ sealed class RouteEngine {
 
                 break
             }
+        }
+    }
+
+    fun <T : Route> pushBottomSheet(route: T) {
+        val bs = Router.getFragment(route) as DialogFragment
+        (activity as? FragmentActivity)?.let {
+            bs.show(it.supportFragmentManager, route.path)
+        }
+    }
+
+    fun <P : RouteParam, T : RouteWithParam<P>> pushBottomSheet(
+        route: T,
+        param: P
+    ) {
+        val bs = Router.getFragment(route, param) as DialogFragment
+        (activity as? FragmentActivity)?.let {
+            bs.show(it.supportFragmentManager, route.path)
         }
     }
 }

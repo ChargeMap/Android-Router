@@ -50,8 +50,9 @@ object Router {
         fragments[route] = FragmentCreator(creator)
     }
 
-    internal fun findInit(path: Destination): RouteInit {
-        return init[path] ?: throw IllegalStateException("No init specified for route $path")
+    internal fun findInit(route: Destination): RouteInit {
+        return init[route]
+            ?: throw IllegalStateException("No init specified for route ${route.path}")
     }
 
     fun <T : Route> getIntent(context: Context, destination: T): Intent {
