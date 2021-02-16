@@ -52,6 +52,10 @@ abstract class RouteWithParamAndInit<P : RouteParam, I : RouteInit>(
     open fun register(creator: (Context) -> Intent) {
         Router.register(this, creator, null)
     }
+
+    open fun registerFragment(creator: () -> Fragment) {
+        Router.register(this, creator)
+    }
 }
 
 abstract class RouteWithInit<I : RouteInit>(
@@ -61,6 +65,10 @@ abstract class RouteWithInit<I : RouteInit>(
 
     open fun register(creator: (Context) -> Intent) {
         Router.register(this, creator, null)
+    }
+
+    open fun registerFragment(creator: () -> Fragment) {
+        Router.register(this, creator)
     }
 }
 

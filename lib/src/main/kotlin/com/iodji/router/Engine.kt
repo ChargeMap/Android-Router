@@ -112,16 +112,34 @@ sealed class RouteEngine {
         }
     }
 
-    fun <T : Route> pushBottomSheet(route: T) {
-        val bs = Router.getFragment(route) as DialogFragment
+    private fun pushBottomSheet(fragment: DialogFragment, path: String) {
         (activity as? FragmentActivity)?.let {
-            bs.show(it.supportFragmentManager, route.path)
+            fragment.show(it.supportFragmentManager, path)
         }
+    }
+
+    fun <T : Route> pushBottomSheet(route: T) {
+        pushBottomSheet(Router.getFragment(route) as DialogFragment, route.path)
     }
 
     fun <P : RouteParam, T : RouteWithParam<P>> pushBottomSheet(
         route: T,
         param: P
+    ) {
+        pushBottomSheet(Router.getFragment(route, param) as DialogFragment, route.path)
+    }
+
+    fun <I : RouteInit, T : RouteWithInit<I>> pushBottomSheet(
+        route: T,
+        init: I,
+    ) {
+        pushBottomSheet(Router.getFragment(route) as DialogFragment, route.path)
+    }
+
+    fun <P : RouteParam, I : RouteInit, T : RouteWithParamAndInit<P, I>> pushBottomSheet(
+        route: T,
+        param: P,
+        init: I
     ) {
         val bs = Router.getFragment(route, param) as DialogFragment
         (activity as? FragmentActivity)?.let {

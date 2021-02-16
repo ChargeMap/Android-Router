@@ -55,57 +55,83 @@ object Router {
             ?: throw IllegalStateException("No init specified for route ${route.path}")
     }
 
-    fun <T : Route> getIntent(context: Context, destination: T): Intent {
-        return routes[destination]?.creator?.invoke(context)
-            ?: throw Exception("route not registered ${destination.path}")
+    fun <T : Route> getIntent(context: Context, route: T): Intent {
+        return routes[route]?.creator?.invoke(context)
+            ?: throw Exception("route not registered ${route.path}")
     }
 
     fun <I : RouteInit, T : RouteWithInit<I>> getIntent(
         context: Context,
-        destination: T,
+        route: T,
         routeInit: I?
     ): Intent {
         routeInit?.let {
-            init[destination] = it
+            init[route] = it
         }
-        return routes[destination]?.creator?.invoke(context)
-            ?: throw Exception("route not registered ${destination.path}")
+        return routes[route]?.creator?.invoke(context)
+            ?: throw Exception("route not registered ${route.path}")
     }
 
     fun <P : RouteParam, T : RouteWithParam<P>> getIntent(
         context: Context,
-        destination: T,
+        route: T,
         param: P?
     ): Intent {
-        return routes[destination]?.let {
+        return routes[route]?.let {
             it.creator(context)
                 .putExtra("bundle", Bundle().apply {
                     putParcelable("routeParam", param)
                 })
-        } ?: throw Exception("route not registered ${destination.path}")
+        } ?: throw Exception("route not registered ${route.path}")
     }
 
     fun <P : RouteParam, I : RouteInit, T : RouteWithParamAndInit<P, I>> getIntent(
         context: Context,
-        destination: T,
+        route: T,
         param: P?,
         routeInit: I?
     ): Intent {
         routeInit?.let {
-            init[destination] = it
+            init[route] = it
         }
-        return routes[destination]?.let {
+        return routes[route]?.let {
             it.creator(context)
                 .putExtra("bundle", Bundle().apply {
                     putParcelable("routeParam", param)
                 })
-        } ?: throw Exception("route not registered ${destination.path}")
+        } ?: throw Exception("route not registered ${route.path}")
     }
 
     private fun findFragment(route: Destination) = fragments.toMap()[route]?.creator?.invoke()
         ?: throw Exception("fragment not registered ${route.path}")
 
     fun <T : Route> getFragment(route: T) = findFragment(route)
+
+    fun <I : RouteInit, T : RouteWithInit<I>> getFragment(route: T, routeInit: I?): Fragment {
+        routeInit?.let {
+            init[route] = it
+        }
+
+        return findFragment(route)
+    }
+
+    fun <P : RouteParam, I : RouteInit, T : RouteWithParamAndInit<P, I>> getFragment(
+        route: T,
+        param: P,
+        routeInit: I?
+    ): Fragment {
+        routeInit?.let {
+            init[route] = it
+        }
+
+        return findFragment(route).apply {
+            arguments = Bundle().apply {
+                putBundle("bundle", Bundle().apply {
+                    putParcelable("routeParam", param)
+                })
+            }
+        }
+    }
 
     fun <P : RouteParam, T : RouteWithParam<P>> getFragment(route: T, param: P) =
         findFragment(route).apply {
