@@ -133,7 +133,7 @@ sealed class RouteEngine {
         route: T,
         init: I,
     ) {
-        pushBottomSheet(Router.getFragment(route) as DialogFragment, route.path)
+        pushBottomSheet(Router.getFragment(route, init) as DialogFragment, route.path)
     }
 
     fun <P : RouteParam, I : RouteInit, T : RouteWithParamAndInit<P, I>> pushBottomSheet(
@@ -141,7 +141,7 @@ sealed class RouteEngine {
         param: P,
         init: I
     ) {
-        val bs = Router.getFragment(route, param) as DialogFragment
+        val bs = Router.getFragment(route, param, init) as DialogFragment
         (activity as? FragmentActivity)?.let {
             bs.show(it.supportFragmentManager, route.path)
         }
