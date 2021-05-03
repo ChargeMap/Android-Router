@@ -2,9 +2,10 @@
 
 Router is a Android library which provides routing features to your applications.
 
-[![GitHub Package Registry version](https://img.shields.io/github/v/tag/chargemap/android-router?label=Latest%20version&logo=github)](https://github.com/github/learning-lab-components/packages/11396)
+[![GitHub Package Registry version](https://img.shields.io/github/v/tag/chargemap/android-router?style=for-the-badge&label=Latest%20version&logo=github)](https://github.com/github/learning-lab-components/packages/11396)
 
-[![GitHub Package Registry version](https://img.shields.io/badge/21+-342e38?label=Minimum&logo=android)](https://github.com/github/learning-lab-components/packages/11396)
+[![GitHub Package Registry version](https://img.shields.io/badge/MIT-342e38?style=flat-square&label=License)](https://github.com/github/learning-lab-components/packages/11396)
+[![GitHub Package Registry version](https://img.shields.io/badge/21+-342e38?style=flat-square&label=Minimum&logo=android)](https://github.com/github/learning-lab-components/packages/11396)
 
 
 ## Installation
@@ -13,17 +14,17 @@ In your **root** *build.gradle* :
 
 ```
 allprojects {
-	repositories {
-		...
-		maven(url = "https://maven.pkg.github.com/Chargemap/Android-Router")
-	}
+  repositories {
+    ...
+    maven(url = "https://maven.pkg.github.com/Chargemap/Android-Router")
+  }
 }
 ```
 In your **module** *build.gradle* :
 
 ```bash
 dependencies {
-	implementation "com.chargemap.android:router:latestVersion"
+  implementation "com.chargemap.android:router:latestVersion"
 }
 ```
 
@@ -90,6 +91,3 @@ This library is inspired from [florent37/Navigator](https://github.com/florent37
 
 | [![raphaël](https://github.com/r4phab.png?size=150)](https://github.com/r4phab) | [Raphaël Bertin](https://github.com/r4phab) |
 |:------------------------------------------------------------------------------:|--------------|
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
