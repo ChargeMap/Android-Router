@@ -1,7 +1,11 @@
 # Router
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.chargemap/android-router/badge.svg)](https://mvnrepository.com/artifact/io.github.chargemap/android-router)
 
 Router is a Android library which provides routing features to your applications.
+
+[![GitHub Package Registry version](https://img.shields.io/github/v/tag/chargemap/android-router?label=Latest%20version&logo=github)](https://github.com/github/learning-lab-components/packages/11396)
+
+[![GitHub Package Registry version](https://img.shields.io/badge/21+-342e38?label=Minimum&logo=android)](https://github.com/github/learning-lab-components/packages/11396)
+
 
 ## Installation
 
@@ -11,7 +15,7 @@ In your **root** *build.gradle* :
 allprojects {
 	repositories {
 		...
-		mavenCentral()
+		maven(url = "https://maven.pkg.github.com/Chargemap/Android-Router")
 	}
 }
 ```
@@ -19,7 +23,7 @@ In your **module** *build.gradle* :
 
 ```bash
 dependencies {
-	implementation "io.github.chargemap:android_router:latestVersion"
+	implementation "com.chargemap.android:router:latestVersion"
 }
 ```
 
