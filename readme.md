@@ -2,11 +2,10 @@
 
 Router is a Android library which provides routing features to your applications.
 
-[![GitHub Package Registry version](https://img.shields.io/github/v/tag/chargemap/android-router?style=for-the-badge&label=Latest%20version&logo=github)](https://github.com/github/learning-lab-components/packages/11396)
+![GitHub Package Registry version](https://img.shields.io/github/v/tag/chargemap/android-router?style=for-the-badge&label=Latest%20version&logo=github)
 
-[![GitHub Package Registry version](https://img.shields.io/badge/MIT-342e38?style=flat-square&label=License)](https://github.com/github/learning-lab-components/packages/11396)
-[![GitHub Package Registry version](https://img.shields.io/badge/21+-342e38?style=flat-square&label=Minimum&logo=android)](https://github.com/github/learning-lab-components/packages/11396)
-
+![GitHub Package Registry version](https://img.shields.io/badge/MIT-342e38?style=flat-square&label=License)
+![GitHub Package Registry version](https://img.shields.io/badge/21+-342e38?style=flat-square&label=Minimum&logo=android)
 
 ## Installation
 
