@@ -1,12 +1,11 @@
 package com.chargemap.android_router.sample
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.chargemap.android_router.Router
 import com.chargemap.android_router.sample.databinding.ActivityButtonBinding
 
-class SecondActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     lateinit var ui: ActivityButtonBinding
 
@@ -21,15 +20,10 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun processView() {
-        ui.root.setBackgroundColor(Color.BLUE)
-
         ui.mainButton.setOnClickListener {
             Router.of(this)
                 .push(
-                    Routes.Third,
-                    Routes.Third.Bundle(
-                        text = "Hello"
-                    )
+                    Routes.Second
                 )
         }
     }

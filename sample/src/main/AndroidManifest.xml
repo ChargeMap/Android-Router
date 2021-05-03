@@ -11,15 +11,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Template">
 
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:label="Activity #1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".SecondActivity" />
-        <activity android:name=".ThirdActivity" />
+        <activity
+            android:name=".SecondActivity"
+            android:label="Activity #2" />
+
+        <activity
+            android:name=".ThirdActivity"
+            android:label="Activity #3" />
     </application>
 
 </manifest>
