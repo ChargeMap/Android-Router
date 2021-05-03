@@ -1,10 +1,10 @@
-package com.iodji.router.sample
+package com.chargemap.android_router.sample
 
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.iodji.router.Router
-import com.iodji.router.sample.databinding.ActivityButtonBinding
+import com.chargemap.android_router.Router
+import com.chargemap.android_router.sample.databinding.ActivityButtonBinding
 
 class SecondActivity : AppCompatActivity() {
 

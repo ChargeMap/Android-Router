@@ -1,4 +1,4 @@
-package com.iodji.router.sample
+package com.chargemap.android_router.sample
 
 import android.app.Application
 import android.content.Intent

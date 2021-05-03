@@ -1,8 +1,8 @@
-package com.iodji.router.sample
+package com.chargemap.android_router.sample
 
-import com.iodji.router.RouteParam
-import com.iodji.router.destinations.Route
-import com.iodji.router.destinations.RouteWithParam
+import com.chargemap.android_router.RouteParam
+import com.chargemap.android_router.destinations.Route
+import com.chargemap.android_router.destinations.RouteWithParam
 import kotlinx.android.parcel.Parcelize
 
 object Routes {

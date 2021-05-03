@@ -1,11 +1,11 @@
-package com.iodji.router.sample
+package com.chargemap.android_router.sample
 
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.iodji.router.lazyRouteParamNotNull
-import com.iodji.router.sample.databinding.ActivityBinding
+import com.chargemap.android_router.lazyRouteParamNotNull
+import com.chargemap.android_router.sample.databinding.ActivityBinding
 
 class ThirdActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.iodji.router
+package com.chargemap.android_router
 
 import android.app.Activity
 import android.content.Context
@@ -7,10 +7,10 @@ import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import com.iodji.router.destinations.Route
-import com.iodji.router.destinations.RouteWithInit
-import com.iodji.router.destinations.RouteWithParam
-import com.iodji.router.destinations.RouteWithParamAndInit
+import com.chargemap.android_router.destinations.Route
+import com.chargemap.android_router.destinations.RouteWithInit
+import com.chargemap.android_router.destinations.RouteWithParam
+import com.chargemap.android_router.destinations.RouteWithParamAndInit
 
 sealed class RouteEngine {
     abstract val context: Context

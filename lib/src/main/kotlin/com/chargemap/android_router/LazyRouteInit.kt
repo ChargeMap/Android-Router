@@ -1,9 +1,9 @@
 @file:Suppress("UNCHECKED_CAST")
 
-package com.iodji.router
+package com.chargemap.android_router
 
-import com.iodji.router.destinations.RouteWithInit
-import com.iodji.router.destinations.RouteWithParamAndInit
+import com.chargemap.android_router.destinations.RouteWithInit
+import com.chargemap.android_router.destinations.RouteWithParamAndInit
 
 interface RouteInit
 

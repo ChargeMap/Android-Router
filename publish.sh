@@ -7,4 +7,5 @@ git push --follow-tags
 
 ./gradlew clean
 ./gradlew build
-./gradlew bintrayUpload -PbintrayUser="$2" -PbintrayKey="$3"
+#./gradlew bintrayUpload -PbintrayUser="$2" -PbintrayKey="$3"
+./gradlew uploadArchives --no-daemon --no-parallel

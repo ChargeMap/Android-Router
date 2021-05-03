@@ -1,4 +1,4 @@
 object Versions {
-    const val gradle = "4.1.0"
-    const val kotlin = "1.4.10"
+    const val gradle = "7.0.0-alpha10"
+    const val kotlin = "1.5.0"
 }

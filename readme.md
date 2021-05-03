@@ -1,25 +1,25 @@
 # Router
-[ ![Download](https://api.bintray.com/packages/iodji/maven/router/images/download.svg) ](https://bintray.com/iodji/maven/router/)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.chargemap/android-router/badge.svg)](https://mvnrepository.com/artifact/io.github.chargemap/android-router)
 
 Router is a Android library which provides routing features to your applications.
 
 ## Installation
 
-In your **root** *build.gralde* :
+In your **root** *build.gradle* :
 
 ```
 allprojects {
 	repositories {
 		...
-		maven { url "https://dl.bintray.com/iodji/maven" }
+		mavenCentral()
 	}
 }
 ```
-In your **module** *build.gralde* :
+In your **module** *build.gradle* :
 
 ```bash
 dependencies {
-	implementation "com.iodji:router:latestVersion"
+	implementation "io.github.chargemap:android_router:latestVersion"
 }
 ```
 

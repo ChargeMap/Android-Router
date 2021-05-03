@@ -1,12 +1,12 @@
-package com.iodji.router.destinations
+package com.chargemap.android_router.destinations
 
 import android.content.Context
 import android.content.Intent
 import androidx.fragment.app.Fragment
-import com.iodji.router.RouteInit
-import com.iodji.router.RouteParam
-import com.iodji.router.Router
-import com.iodji.router.utils.PathMatcher
+import com.chargemap.android_router.RouteInit
+import com.chargemap.android_router.RouteParam
+import com.chargemap.android_router.Router
+import com.chargemap.android_router.utils.PathMatcher
 
 sealed class AbstractRoute(
     override val path: String,

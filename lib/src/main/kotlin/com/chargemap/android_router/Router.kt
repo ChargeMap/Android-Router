@@ -1,13 +1,13 @@
 @file:Suppress("UNUSED_PARAMETER", "UNCHECKED_CAST")
 
-package com.iodji.router
+package com.chargemap.android_router
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.iodji.router.destinations.*
+import com.chargemap.android_router.destinations.*
 
 class RouteCreator(
     val creator: (Context) -> Intent,
