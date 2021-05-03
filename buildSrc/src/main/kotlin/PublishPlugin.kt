@@ -5,6 +5,7 @@ import org.gradle.api.publish.maven.MavenPublication
 import org.gradle.api.tasks.bundling.Jar
 import org.gradle.kotlin.dsl.create
 import java.io.File
+import java.net.URI
 import java.util.*
 
 fun readFile(path: String): File {
@@ -20,7 +21,7 @@ class PublishPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         project.plugins.apply("maven-publish")
 
-        project.group = "${project.libProperties.getProperty("lib.extension")}.${project.libProperties.getProperty("lib.group")}"
+        project.group = project.libProperties.getProperty("lib.group")
         project.version = project.libProperties.getProperty("version.name")
 
         val sourcesJar = project.tasks.create<Jar>("androidSourcesJar") {
@@ -32,7 +33,7 @@ class PublishPlugin : Plugin<Project> {
                 artifact("${project.buildDir}/outputs/aar/lib-release.aar")
                 artifact(sourcesJar)
 
-                groupId = "${project.libProperties.getProperty("lib.extension")}.${project.libProperties.getProperty("lib.group")}"
+                groupId = project.libProperties.getProperty("lib.group")
                 artifactId = project.libProperties.getProperty("lib.name")
                 version = project.libProperties.getProperty("version.name")
 
@@ -64,6 +65,17 @@ class PublishPlugin : Plugin<Project> {
                                 }
                             }
                         }
+                    }
+                }
+            }
+
+            repositories {
+                maven {
+                    name = "Github"
+                    url = URI("https://maven.pkg.github.com/Chargemap/Android-Router")
+                    credentials {
+                        username = project.commonGradleProperties.getProperty("gpr.user")
+                        password = project.commonGradleProperties.getProperty("gpr.token")
                     }
                 }
             }

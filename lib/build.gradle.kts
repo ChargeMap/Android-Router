@@ -1,14 +1,10 @@
-import java.io.FileInputStream
-import java.util.*
-
 plugins {
     id("com.android.library")
     id("kotlin-android")
     id("common")
-    id("com.vanniktech.maven.publish")
+    //id("com.vanniktech.maven.publish")
+    id("publish")
 }
-
-val libProperties = Properties().apply { load(FileInputStream("lib.properties")) }
 
 android {
     kotlinOptions.jvmTarget = "1.8"
