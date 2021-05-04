@@ -1,4 +1,4 @@
-package com.chargemap.android_router.utils;
+package com.chargemap.android.router.utils;
 
 import java.util.regex.Pattern
 

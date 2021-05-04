@@ -1,4 +1,4 @@
-package com.chargemap.android_router
+package com.chargemap.android.router
 
 import android.app.Activity
 import android.content.Context
@@ -7,10 +7,10 @@ import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import com.chargemap.android_router.destinations.Route
-import com.chargemap.android_router.destinations.RouteWithInit
-import com.chargemap.android_router.destinations.RouteWithParam
-import com.chargemap.android_router.destinations.RouteWithParamAndInit
+import com.chargemap.android.router.destinations.Route
+import com.chargemap.android.router.destinations.RouteWithInit
+import com.chargemap.android.router.destinations.RouteWithParam
+import com.chargemap.android.router.destinations.RouteWithParamAndInit
 
 sealed class RouteEngine {
     abstract val context: Context

@@ -1,4 +1,4 @@
-package com.chargemap.android_router.sample
+package com.chargemap.android.router.sample
 
 import android.app.Application
 import android.content.Intent

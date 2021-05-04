@@ -1,13 +1,13 @@
 @file:Suppress("UNUSED_PARAMETER")
 
-package com.chargemap.android_router
+package com.chargemap.android.router
 
 import android.app.Activity
 import android.os.Bundle
 import android.os.Parcelable
 import androidx.fragment.app.Fragment
-import com.chargemap.android_router.destinations.RouteWithParam
-import com.chargemap.android_router.destinations.RouteWithParamAndInit
+import com.chargemap.android.router.destinations.RouteWithParam
+import com.chargemap.android.router.destinations.RouteWithParamAndInit
 
 interface RouteParam : Parcelable
 
