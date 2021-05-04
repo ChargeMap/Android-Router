@@ -2,23 +2,13 @@
 
 Router is a Android library which provides routing features to your applications.
 
-![GitHub Package Registry version](https://img.shields.io/github/v/tag/chargemap/android-router?style=for-the-badge&label=Latest%20version&logo=github)
+[![Maven version](https://img.shields.io/maven-central/v/io.github.chargemap.android/router?style=for-the-badge)](https://maven-badges.herokuapp.com/maven-central/io.github.chargemap.android/router)
 
-![GitHub Package Registry version](https://img.shields.io/badge/MIT-342e38?style=flat-square&label=License)
-![GitHub Package Registry version](https://img.shields.io/badge/21+-342e38?style=flat-square&label=Minimum&logo=android)
+![License MIT](https://img.shields.io/badge/MIT-342e38?style=flat-square&label=License)
+![Android minimuml version](https://img.shields.io/badge/21+-342e38?style=flat-square&label=Minimum&logo=android)
 
 ## Installation
 
-In your **root** *build.gradle* :
-
-```
-allprojects {
-  repositories {
-    ...
-    maven(url = "https://maven.pkg.github.com/Chargemap/Android-Router")
-  }
-}
-```
 In your **module** *build.gradle* :
 
 ```bash
