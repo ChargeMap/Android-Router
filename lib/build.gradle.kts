@@ -2,8 +2,8 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("common")
-    //id("com.vanniktech.maven.publish")
-    id("publish")
+    id("com.vanniktech.maven.publish")
+    //id("publish")
 }
 
 android {
