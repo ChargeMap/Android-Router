@@ -6,6 +6,10 @@ plugins {
     //id("publish")
 }
 
+mavenPublish {
+    sonatypeHost = com.vanniktech.maven.publish.SonatypeHost.S01
+}
+
 android {
     kotlinOptions.jvmTarget = "1.8"
 }
