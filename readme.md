@@ -2,6 +2,8 @@
 
 Router is a Android library which provides routing features to your applications.
 
+[![chargemap](https://github.com/chargemap.png?size=50)](https://chargemap.com)
+
 [![Maven version](https://img.shields.io/maven-central/v/io.github.chargemap.android/router?style=for-the-badge)](https://maven-badges.herokuapp.com/maven-central/io.github.chargemap.android/router)
 
 ![License MIT](https://img.shields.io/badge/MIT-342e38?style=flat-square&label=License)
@@ -78,5 +80,5 @@ This library is inspired from [florent37/Navigator](https://github.com/florent37
 
 ## Contributors
 
-| [![raphaël](https://github.com/r4phab.png?size=150)](https://github.com/r4phab) | [Raphaël Bertin](https://github.com/r4phab) |
+| [![raphaël](https://github.com/r4phab.png?size=120)](https://github.com/r4phab) | [Raphaël Bertin](https://github.com/r4phab) |
 |:------------------------------------------------------------------------------:|--------------|
