@@ -92,7 +92,7 @@ object Router {
         routeInit: I?
     ): Intent {
         routeInit?.let {
-            init[route] = it
+            init[route] = routeInit
         }
         return routes[route]?.let {
             it.creator(context)

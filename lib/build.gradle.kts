@@ -3,7 +3,6 @@ plugins {
     id("kotlin-android")
     id("common")
     id("com.vanniktech.maven.publish")
-    //id("publish")
 }
 
 mavenPublish {
@@ -16,8 +15,7 @@ android {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")
-    implementation("androidx.fragment:fragment-ktx:1.3.3")
-    implementation("androidx.core:core-ktx:1.5.0-rc01")
+    implementation("androidx.fragment:fragment-ktx:1.3.6")
 
     testImplementation("junit:junit:4.13.1")
 }
