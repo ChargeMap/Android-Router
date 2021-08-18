@@ -15,7 +15,7 @@ In your **module** *build.gradle* :
 
 ```bash
 dependencies {
-  implementation "com.chargemap.android:router:latestVersion"
+  implementation "io.github.chargemap.android:router:latestVersion"
 }
 ```
 
