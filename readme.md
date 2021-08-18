@@ -4,7 +4,7 @@ Router is a Android library which provides routing features to your applications
 
 [![chargemap](https://github.com/chargemap.png?size=50)](https://chargemap.com)
 
-[![Maven version](https://img.shields.io/maven-central/v/io.github.chargemap.android/router?style=for-the-badge)](https://maven-badges.herokuapp.com/maven-central/io.github.chargemap.android/router)
+[![Maven version](https://img.shields.io/maven-central/v/com.chargemap.android/router?style=for-the-badge)](https://maven-badges.herokuapp.com/maven-central/com.chargemap.android/router)
 
 ![License MIT](https://img.shields.io/badge/MIT-342e38?style=flat-square&label=License)
 ![Android minimuml version](https://img.shields.io/badge/21+-342e38?style=flat-square&label=Minimum&logo=android)
@@ -13,9 +13,9 @@ Router is a Android library which provides routing features to your applications
 
 In your **module** *build.gradle* :
 
-```bash
+```
 dependencies {
-  implementation "io.github.chargemap.android:router:latestVersion"
+  implementation "com.chargemap.android:router:latestVersion"
 }
 ```
 
