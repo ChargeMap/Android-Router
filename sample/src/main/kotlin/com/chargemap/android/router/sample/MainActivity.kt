@@ -13,9 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         ui = ActivityButtonBinding.inflate(layoutInflater)
-
         processView()
-
         setContentView(ui.root)
     }
 

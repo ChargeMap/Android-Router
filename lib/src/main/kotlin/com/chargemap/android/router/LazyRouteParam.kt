@@ -21,5 +21,5 @@ fun <P : RouteParam, R : RouteWithParamAndInit<P, *>> Fragment.lazyRouteParamNot
 fun <P : RouteParam, R : RouteWithParamAndInit<P, *>> Activity.lazyRouteParam(destination: R): Lazy<P?> = lazy { intent.extras?.param() }
 fun <P : RouteParam, R : RouteWithParamAndInit<P, *>> Activity.lazyRouteParamNotNull(destination: R): Lazy<P> = lazy { intent.extras!!.paramNotNull() }
 
-private fun <P : RouteParam> Bundle.param(): P? = getBundle("bundle")?.getParcelable("routeParam")
+private fun <P : RouteParam> Bundle.param(): P? = getBundle(Router.bundleName)?.getParcelable(Router.bundleDataName)
 private fun <P : RouteParam> Bundle.paramNotNull(): P = param()!!

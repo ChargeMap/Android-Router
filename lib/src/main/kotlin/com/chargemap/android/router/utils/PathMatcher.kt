@@ -16,14 +16,13 @@ class PathMatcher(path: String) {
     private val regex: Pattern = Pattern.compile("^$pathReplaced\$")
     private val pathParams: List<String> = path.valuesOf(PARAM_PATTERN)
 
-    fun matches(url: String): Boolean {
-        return try {
+    fun matches(url: String): Boolean =
+        try {
             regex.matcher(url).find()
         } catch (t: Throwable) {
             t.printStackTrace()
             false
         }
-    }
 
     fun parametersValues(url: String): Map<String, String> {
         val paramsMap = mutableMapOf<String, String>()

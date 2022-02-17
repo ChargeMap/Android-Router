@@ -21,11 +21,11 @@ abstract class Route(
     requestCode: Int? = null,
 ) : AbstractRoute(path, requestCode) {
 
-    open fun register(creator: (Context) -> Intent) {
+    fun register(creator: (Context) -> Intent) {
         Router.register(this, creator, null)
     }
 
-    open fun registerFragment(creator: () -> Fragment) {
+    fun registerFragment(creator: () -> Fragment) {
         Router.register(this, creator)
     }
 }
@@ -39,7 +39,7 @@ abstract class RouteWithParam<P : RouteParam>(
         Router.register(this, creator, null)
     }
 
-    open fun registerFragment(creator: () -> Fragment) {
+    fun registerFragment(creator: () -> Fragment) {
         Router.register(this, creator)
     }
 }
@@ -49,25 +49,25 @@ abstract class RouteWithParamAndInit<P : RouteParam, I : RouteInit>(
     requestCode: Int? = null,
 ) : AbstractRoute(path, requestCode) {
 
-    open fun register(creator: (Context) -> Intent) {
+    fun register(creator: (Context) -> Intent) {
         Router.register(this, creator, null)
     }
 
-    open fun registerFragment(creator: () -> Fragment) {
+    fun registerFragment(creator: () -> Fragment) {
         Router.register(this, creator)
     }
 }
 
-abstract class RouteWithInit<I : RouteInit>(
+abstract class RouteWithInit(
     path: String,
     requestCode: Int? = null,
 ) : AbstractRoute(path, requestCode) {
 
-    open fun register(creator: (Context) -> Intent) {
+    fun register(creator: (Context) -> Intent) {
         Router.register(this, creator, null)
     }
 
-    open fun registerFragment(creator: () -> Fragment) {
+    fun registerFragment(creator: () -> Fragment) {
         Router.register(this, creator)
     }
 }
