@@ -58,7 +58,7 @@ abstract class RouteWithParamAndInit<P : RouteParam, I : RouteInit>(
     }
 }
 
-abstract class RouteWithInit(
+abstract class RouteWithInit<I : RouteInit>(
     path: String,
     requestCode: Int? = null,
 ) : AbstractRoute(path, requestCode) {

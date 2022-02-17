@@ -81,7 +81,7 @@ object Router {
         routes[route]?.factory?.invoke(context)
             ?: throw Exception("route not registered ${route.path}")
 
-    fun <I : RouteInit, T : RouteWithInit> getIntent(
+    fun <I : RouteInit, T : RouteWithInit<I>> getIntent(
         context: Context,
         route: T,
         routeInit: I?
@@ -124,7 +124,7 @@ object Router {
 
     fun <T : Route> getFragment(route: T) = findFragment(route)
 
-    fun <I : RouteInit, T : RouteWithInit> getFragment(route: T, routeInit: I?): Fragment {
+    fun <I : RouteInit, T : RouteWithInit<I>> getFragment(route: T, routeInit: I?): Fragment {
         init[route] = routeInit
         return findFragment(route)
     }

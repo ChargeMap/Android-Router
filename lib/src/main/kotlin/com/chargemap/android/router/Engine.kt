@@ -30,7 +30,7 @@ sealed class RouteEngine {
             finishActivity = finishActivity
         )
 
-    fun <I : RouteInit, T : RouteWithInit> push(
+    fun <I : RouteInit, T : RouteWithInit<I>> push(
         route: T,
         init: I,
         finishActivity: Boolean = false
@@ -111,7 +111,7 @@ sealed class RouteEngine {
 
     fun <T : Route> pushBottomSheet(route: T) = pushBottomSheet(Router.getFragment(route) as DialogFragment, route.path)
     fun <P : RouteParam, T : RouteWithParam<P>> pushBottomSheet(route: T, param: P) = pushBottomSheet(Router.getFragment(route, param) as DialogFragment, route.path)
-    fun <I : RouteInit, T : RouteWithInit> pushBottomSheet(route: T, init: I) = pushBottomSheet(Router.getFragment(route, init) as DialogFragment, route.path)
+    fun <I : RouteInit, T : RouteWithInit<I>> pushBottomSheet(route: T, init: I) = pushBottomSheet(Router.getFragment(route, init) as DialogFragment, route.path)
 
     fun <P : RouteParam, I : RouteInit, T : RouteWithParamAndInit<P, I>> pushBottomSheet(
         route: T,
