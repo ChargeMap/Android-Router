@@ -21,11 +21,12 @@ sealed class RouteEngine {
     protected abstract fun start(intent: Intent)
     protected abstract fun startForResult(intent: Intent, code: Int)
 
-    fun startService(intent: Intent) {
-        context.startService(intent)
+    fun <T : Route> startService(route: T) {
+        context.startService(Router.getIntent(context, route))
     }
-    fun stopService(intent: Intent) {
-        context.stopService(intent)
+
+    fun <T : Route> stopService(route: T) {
+        context.stopService(Router.getIntent(context, route))
     }
 
     fun <T : Route> push(
