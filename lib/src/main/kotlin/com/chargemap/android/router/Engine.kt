@@ -1,6 +1,7 @@
 package com.chargemap.android.router
 
 import android.app.Activity
+import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -19,6 +20,13 @@ sealed class RouteEngine {
 
     protected abstract fun start(intent: Intent)
     protected abstract fun startForResult(intent: Intent, code: Int)
+
+    fun startService(intent: Intent) {
+        context.startService(intent)
+    }
+    fun stopService(intent: Intent) {
+        context.stopService(intent)
+    }
 
     fun <T : Route> push(
         route: T,
@@ -140,4 +148,13 @@ class FragmentEngine(private val fragment: Fragment) : RouteEngine() {
 
     override fun start(intent: Intent) = fragment.startActivity(intent)
     override fun startForResult(intent: Intent, code: Int) = fragment.startActivityForResult(intent, code)
+}
+
+class ApplicationEngine(private val application: Application) : RouteEngine() {
+
+    override val context get() = application
+    override val activity: Activity get() = throw Exception("Cannot get activity from router with application context")
+
+    override fun start(intent: Intent) = application.startActivity(intent)
+    override fun startForResult(intent: Intent, code: Int) = throw Exception("Cannot start activity for result from router with application context")
 }

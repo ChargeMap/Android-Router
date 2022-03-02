@@ -3,6 +3,7 @@
 package com.chargemap.android.router
 
 import android.app.Activity
+import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -56,6 +57,7 @@ object Router {
 
     fun of(activity: Activity) = ActivityEngine(activity)
     fun of(fragment: Fragment) = FragmentEngine(fragment)
+    fun of(application: Application) = ApplicationEngine(application)
 
     fun has(route: Destination) = routes.toMap().containsKey(route) || fragments.toMap().containsKey(route)
 
