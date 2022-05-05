@@ -80,5 +80,5 @@ This library is inspired from [florent37/Navigator](https://github.com/florent37
 
 ## Contributors
 
-| [![raphaël](https://github.com/r4phab.png?size=50)](https://github.com/r4phab) | [Raphaël Bertin](https://github.com/r4phab) | Author |
+| [![chargemap](https://github.com/chargemap.png?size=50)](https://github.com/chargemap) | [Chargemap](https://github.com/chargemap) | Author |
 |--------------|--------------|--------------|
