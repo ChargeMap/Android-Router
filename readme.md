@@ -42,6 +42,11 @@ Routes.Second.register {
     Intent(it, SecondActivity::class.java)
 }
 ```
+or even simpler:
+
+```
+Routes.Second.register(SecondActivity::class.java)
+```
 
 You are free to initialize your routes wherever you want but be sure to do it before pushing the associated route.
 
@@ -55,9 +60,9 @@ For a simple route :
 
 ```
 Router.of(this)
-.push(
-    Routes.Second
-)
+	.push(
+	    Routes.Second
+	)
 
 ```
 
@@ -65,12 +70,12 @@ For a route with a param :
 
 ```
 Router.of(this)
-.push(
-    Routes.Third,
-    Routes.Third.Bundle(
-        text = "Hello"
-    )
-)
+	.push(
+	    Routes.Third,
+	    Routes.Third.Bundle(
+	        text = "Hello"
+	    )
+	)
 
 ```
 
