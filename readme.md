@@ -45,7 +45,7 @@ Routes.Second.register {
 or even simpler:
 
 ```
-Routes.Second.register(SecondActivity::class.java)
+Routes.Second.register<SecondActivity>()
 ```
 
 You are free to initialize your routes wherever you want but be sure to do it before pushing the associated route.

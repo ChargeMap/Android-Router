@@ -1,18 +1,13 @@
 package com.chargemap.android.router.sample
 
 import android.app.Application
-import android.content.Intent
+import com.chargemap.android.router.destinations.register
 
 class SampleApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        Routes.Second.register {
-            Intent(it, SecondActivity::class.java)
-        }
-
-        Routes.Third.register {
-            Intent(it, ThirdActivity::class.java)
-        }
+        Routes.Second.register<SecondActivity>()
+        Routes.Third.register<ThirdActivity>()
     }
 }

@@ -19,12 +19,6 @@ sealed class AbstractRoute(
         Router.register(this, creator, null)
     }
 
-    fun register(classCreator: () -> Class<*>) {
-        Router.register(this, {
-            Intent(it, classCreator())
-        }, null)
-    }
-
     fun registerFragment(creator: () -> Fragment) {
         Router.register(this, creator)
     }
@@ -67,7 +61,6 @@ abstract class RouteWithDeepLink<P : RouteParam>(
 }
 
 inline fun <reified T : Any> AbstractRoute.register() =
-    register(
-        classCreator = {
-            T::class.java
-        })
+    Router.register(this, {
+        Intent(it, T::class.java)
+    }, null)
