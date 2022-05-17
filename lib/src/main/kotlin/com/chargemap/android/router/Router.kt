@@ -69,7 +69,7 @@ object Router {
         register(
             route = route,
             creator = {
-                Intent(it, creatorJavaClass().java)
+                Intent(it, creatorJavaClass())
             },
             bundleCreator = bundleCreator
         )
