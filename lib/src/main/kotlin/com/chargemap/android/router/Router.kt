@@ -63,20 +63,6 @@ object Router {
 
     fun register(
         route: AbstractRoute,
-        creatorJavaClass: () -> Class<*>,
-        bundleCreator: ((Map<String, String>) -> RouteParam)?
-    ) =
-        register(
-            route = route,
-            creator = {
-                Intent(it, creatorJavaClass())
-            },
-            bundleCreator = bundleCreator
-        )
-
-
-    fun register(
-        route: AbstractRoute,
         creator: (Context) -> Intent,
         bundleCreator: ((Map<String, String>) -> RouteParam)?
     ) =

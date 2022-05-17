@@ -14,63 +14,41 @@ sealed class AbstractRoute(
 ) : Destination {
 
     override val pathMatcher by lazy { PathMatcher(path) }
-}
-
-abstract class Route(
-    path: String,
-    requestCode: Int? = null,
-) : AbstractRoute(path, requestCode) {
-
-    fun register(creator: (Context) -> Intent) {
-        Router.register(this, creator, null)
-    }
-
-    fun registerFragment(creator: () -> Fragment) {
-        Router.register(this, creator)
-    }
-}
-
-abstract class RouteWithParam<P : RouteParam>(
-    path: String,
-    requestCode: Int? = null,
-) : AbstractRoute(path, requestCode) {
 
     open fun register(creator: (Context) -> Intent) {
         Router.register(this, creator, null)
     }
 
+    fun register(classCreator: () -> Class<*>) {
+        Router.register(this, {
+            Intent(it, classCreator())
+        }, null)
+    }
+
     fun registerFragment(creator: () -> Fragment) {
         Router.register(this, creator)
     }
 }
+
+abstract class Route(
+    path: String,
+    requestCode: Int? = null,
+) : AbstractRoute(path, requestCode)
+
+abstract class RouteWithParam<P : RouteParam>(
+    path: String,
+    requestCode: Int? = null,
+) : AbstractRoute(path, requestCode)
 
 abstract class RouteWithParamAndInit<P : RouteParam, I : RouteInit>(
     path: String,
     requestCode: Int? = null,
-) : AbstractRoute(path, requestCode) {
-
-    fun register(creator: (Context) -> Intent) {
-        Router.register(this, creator, null)
-    }
-
-    fun registerFragment(creator: () -> Fragment) {
-        Router.register(this, creator)
-    }
-}
+) : AbstractRoute(path, requestCode)
 
 abstract class RouteWithInit<I : RouteInit>(
     path: String,
     requestCode: Int? = null,
-) : AbstractRoute(path, requestCode) {
-
-    fun register(creator: (Context) -> Intent) {
-        Router.register(this, creator, null)
-    }
-
-    fun registerFragment(creator: () -> Fragment) {
-        Router.register(this, creator)
-    }
-}
+) : AbstractRoute(path, requestCode)
 
 abstract class RouteWithDeepLink<P : RouteParam>(
     path: String,
@@ -87,3 +65,9 @@ abstract class RouteWithDeepLink<P : RouteParam>(
         }
     }
 }
+
+inline fun <reified T : Any> AbstractRoute.register() =
+    register(
+        classCreator = {
+            T::class.java
+        })
